@@ -3,7 +3,7 @@
 import random
 
 def generateSequence(length):
-    lettersList = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    lettersList = 'ABCDEFGHIJKLMNOPQRSTUVXZ'
     return ''.join(random.choice(lettersList) for _ in range(length))
 
 def displaySequence(sequence):
