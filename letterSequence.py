@@ -7,7 +7,7 @@ def generateSequence(length):
     return ''.join(random.choice(lettersList) for _ in range(length))
 
 def displaySequence(sequence):
-    print("Generated sequence: ",end="")
+    print("\nGenerated sequence: ",end="")
     for i in range(len(sequence)):
         print(sequence[i], end="")
         if i % 2 == 1:
@@ -15,18 +15,23 @@ def displaySequence(sequence):
 
 def checkSequence(userInput, sequence):
     if userInput.upper() == sequence:
-        print(f'You\'re right! | Sequence: {sequence}  | Your guess: {userInput}')
+        print(f'You\'re right! | Sequence: {sequence} | Your guess: {userInput}')
     else:
         print(f'Wrong! | Sequence: {sequence} | Your guess: {userInput}')
 
 #Main program
-SEQUENCE_LENGHT = 8
-finalSequence = generateSequence(SEQUENCE_LENGHT)
+while True:
+    SEQUENCE_LENGHT = 10
+    finalSequence = generateSequence(SEQUENCE_LENGHT)
 
-displaySequence(finalSequence)
+    displaySequence(finalSequence)
 
-input("\nPress enter when you are ready")
-print(100 * '\n')
+    input("\nPress [Enter] when you are ready...")
+    print(100 * '\n')
 
-userSequence = input("Enter your guess: ")
-checkSequence(userSequence, finalSequence)
+    userSequence = input("Enter your guess: ")
+    checkSequence(userSequence, finalSequence)
+    
+    playAgain = input("Wanna play again? [Y/n] ").lower()
+    if playAgain == "n":
+        break
